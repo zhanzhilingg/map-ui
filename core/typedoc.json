@@ -1,0 +1,10 @@
+{
+  "entryPoints": [
+      "./src/index.ts"
+  ],
+  "out": "./docs",
+  "excludePrivate": "true",
+  "excludeProtected": "true",
+  "media": ["./demo-images"],
+  "includes": ["./demo"]
+}

@@ -1,0 +1,97 @@
+// container element
+.@{prefix}container {
+    // containers should be relative to each other
+    position: relative;
+    min-width: 0; // 修复了许多flex / grid问题
+    min-height: 0; // 修复了许多flex / grid问题
+}
+
+// resizable content
+.@{prefix}container.@{prefix}resizable {
+    // resizable handle
+    > .@{prefix}resizable-handle {
+        position: absolute;
+        z-index: 1;
+        opacity: 0;
+        background-color: transparent;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    // resizable handle state while resizing
+    &.@{prefix}resizable-resizing > .@{prefix}resizable-handle {
+        opacity: 1;
+    }
+
+    // horizontal handle
+    &.@{prefix}resizable-left,
+    &.@{prefix}resizable-right {
+        > .@{prefix}resizable-handle {
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            height: auto;
+            cursor: ew-resize;
+        }
+    }
+
+    &.@{prefix}resizable-left {
+        > .@{prefix}resizable-handle {
+            left: 0;
+            border-left: 3px solid @bcg-darkest;
+        }
+    }
+
+    &.@{prefix}resizable-right {
+        > .@{prefix}resizable-handle {
+            right: 0;
+            border-right: 3px solid @bcg-darkest;
+        }
+    }
+
+    // vertical handle
+    &.@{prefix}resizable-top,
+    &.@{prefix}resizable-bottom {
+        > .@{prefix}resizable-handle {
+            left: 0;
+            right: 0;
+            width: auto;
+            height: 1px;
+            cursor: ns-resize;
+        }
+    }
+
+    &.@{prefix}resizable-top {
+        > .@{prefix}resizable-handle {
+            top: 0;
+            border-top: 3px solid @bcg-darkest;
+        }
+    }
+
+    &.@{prefix}resizable-bottom {
+        > .@{prefix}resizable-handle {
+            bottom: 0;
+            border-bottom: 3px solid @bcg-darkest;
+        }
+    }
+}
+
+.@{prefix}container-dragged {
+    outline: 2px solid @text-primary;
+    box-sizing: border-box;
+    opacity: 0.7;
+    z-index: 1;
+
+    // background: @bcg-darkest !important;
+    // > * {
+    //     transition: none !important;
+    //     visibility: hidden;
+    // }
+}
+
+.@{prefix}container-dragged-child {
+    outline: 1px dotted @text-active;
+    box-sizing: border-box;
+}

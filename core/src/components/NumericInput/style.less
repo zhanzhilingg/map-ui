@@ -1,0 +1,57 @@
+.@{prefix}numeric-input-slider-control {
+    display: none;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    right: 3px;
+    border: 2px solid @bcg-darkest;
+    background-color: @bcg-darker;
+    border-radius: 100px;
+    z-index: 9999;
+    transform: translateY(-50%);
+    top: 50%;
+    cursor: ew-resize;
+}
+
+.@{prefix}numeric-input-slider-control::after {
+    content: '\E408';
+    font-size: 15px;
+    font-family: pc-icon;
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    transform: rotateZ(90deg);
+}
+
+.@{prefix}numeric-input-slider-control:hover {
+    opacity: 0.5;
+    color: @text-secondary;
+}
+
+.@{prefix}numeric-input-slider-control-active {
+    opacity: 1 !important;
+    color: #7f7 !important;
+}
+
+.@{prefix}numeric-input-slider-control-hidden {
+    display: none !important;
+}
+
+.@{prefix}numeric-input:hover {
+    .@{prefix}numeric-input-slider-control {
+        display: block;
+    }
+}
+
+.@{prefix}numeric-input.@{prefix}disabled:hover {
+    .@{prefix}numeric-input-slider-control {
+        display: none;
+    }
+}
+
+.@{prefix}numeric-input.@{prefix}disabled,
+.@{prefix}numeric-input.@{prefix}readonly {
+    .@{prefix}numeric-input-slider-control {
+        display: none;
+    }
+}

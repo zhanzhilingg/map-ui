@@ -1,0 +1,291 @@
+.@{prefix}gradient {
+    display: inline-block;
+    flex: 1;
+    height: 24px;
+    box-sizing: border-box;
+    margin: @element-margin;
+    transition: opacity 100ms, box-shadow 100ms;
+    border: 1px solid @bcg-darker;
+    background-color: @bcg-dark;
+
+    > .@{prefix}canvas {
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+    }
+}
+
+// disabled gradient input
+.@{prefix}gradient.@{prefix}disabled,
+.@{prefix}gradient.@{prefix}multiple-values {
+    opacity: @element-opacity-disabled;
+}
+
+// hover / focus states
+.@{prefix}gradient:not( .@{prefix}disabled),
+.@{prefix}gradient:not( .@{prefix}readonly ),
+.@{prefix}gradient:not( .@{prefix}multiple-values)  {
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        box-shadow: @element-shadow-hover;
+    }
+
+    &:active {
+        box-shadow: @element-shadow-active;
+    }
+}
+
+.picker-gradient {
+    > .@{prefix}overlay-content {
+        width: 343px;
+        height: 262px;
+
+        > .picker-gradient-panel {
+            height: 100%;
+            font-size: 11px;
+
+            >.show-selected-position {
+                position: absolute;
+                width: 18px;
+                min-height: 17px !important;
+                height: 17px !important;
+                top: 14px;
+                margin-top: 0;
+                margin-bottom: 0;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                color: #9ba1a3;
+                background-color: #2c393c;
+                border-radius: 2px;
+                justify-content: center;
+
+                >.show-selected-position-input {
+                    width: inherit;
+                    text-align: center;
+                    justify-content: center;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 22px;
+                }
+            }
+
+            > .anchor-crosshair {
+                position: absolute;
+                top: 41.5px;
+                pointer-events: none;
+                background: none;
+
+                >.crosshair-bar {
+                    background: #293538;
+                    width: 1px;
+                    height: 29px;
+                    position: absolute;
+                    top: -34px;
+                    left: 8px;
+                }
+
+                >.show-crosshair-position {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 12px;
+                    font-family: inconsolatamedium, Monaco, Menlo, 'Ubuntu Mono', Consolas, source-code-pro, monospace;
+                    line-height: 22px;
+                    position: absolute;
+                    width: 18px;
+                    min-height: 17px !important;
+                    height: 17px !important;
+                    top: 14px;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    color: #9ba1a3;
+                    background-color: #2c393c;
+                    border-radius: 2px;
+                    justify-content: center;
+                }
+            }
+
+            > .picker-gradient-gradient {
+                width: 321px;
+                height: 28px;
+                display: block;
+                padding: 8px 10px 0 11px;
+                background-color: #2c393c;
+
+                .crosshair-active {
+                    cursor: none;
+                }
+            }
+
+            > .picker-gradient-anchors {
+                width: 320px;
+                height: 28px;
+                display: block;
+                padding: 0 10px 0 11px;
+                background-color: #2c393c;
+            }
+
+            > .picker-gradient-footer {
+                padding: 5px;
+
+                > .@{prefix}panel-header {
+                    display: none;
+                }
+
+                > .@{prefix}panel-content {
+                    display: flex;
+
+                    > .@{prefix}label {
+                        align-self: center;
+                        font-family: inherit;
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 12px;
+                        line-height: 19px;
+                        align-content: center;
+                        height: 20px;
+                    }
+
+                    > .@{prefix}select-input {
+                        align-self: center;
+                        width: 162px;
+                        height: 22px;
+                    }
+
+                    > .@{prefix}numeric-input {
+                        align-self: center;
+                    }
+
+                    > .@{prefix}button {
+                        width: 22px;
+                        height: 22px;
+
+                        &:extend(.font-icon);
+
+                        vertical-align: bottom;
+                        margin: 0;
+                        margin-right: 8px;
+                        margin-top: 6px;
+                    }
+
+                    > .copy-curve-button {
+                        border-color: #2c393c;
+
+                        &::after {
+                            content: '\e351';
+                            position: absolute;
+                            top: 4px;
+                            left: 218px;
+                            font-size: 15px;
+                            text-align: center;
+
+                            &:extend(.font-icon);
+                        }
+                    }
+
+                    > .paste-curve-button {
+                        border-color: #2c393c;
+
+                        &::after {
+                            content: '\e348';
+                            position: absolute;
+                            top: 4px;
+                            left: 248px;
+                            font-size: 15px;
+                            text-align: center;
+
+                            &:extend(.font-icon);
+                        }
+                    }
+
+                    > .delete-curve-button {
+                        border-color: #2c393c;
+
+                        &::after {
+                            content: '\e125';
+                            position: absolute;
+                            top: 4px;
+                            left: 278px;
+                            font-size: 15px;
+                            text-align: center;
+
+                            &:extend(.font-icon);
+                        }
+                    }
+                }
+            }
+
+            > .color-panel {
+                height: 156px;
+
+                > .@{prefix}panel-header {
+                    display: none;
+                }
+
+                > .@{prefix}panel-content {
+                    > .color-rect {
+                        margin: 5px 10px 10px;
+                        width: 140px;
+                        height: 140px;
+                        cursor: crosshair;
+                        position: relative;
+                        float: left;
+                        border-width: 1px;
+                    }
+
+                    > .color-handle {
+                        position: absolute;
+                        width: 14px;
+                        height: 14px;
+                        border: 1px solid #000;
+                        outline: 1px solid #fff;
+                        pointer-events: none;
+                    }
+
+                    > .hue-rect,
+                    > .alpha-rect {
+                        margin: 5px 10px 10px 0;
+                        width: 20px;
+                        height: 140px;
+                        cursor: crosshair;
+                        border-width: 1px;
+                    }
+
+                    > .hue-handle,
+                    > .alpha-handle {
+                        position: absolute;
+                        width: 20px;
+                        height: 4px;
+                        border: 1px solid rgb(92 82 79);
+                        outline: 1px solid #fff;
+                        pointer-events: none;
+                    }
+
+                    > .fields {
+                        display: inline-block;
+                        margin: 3px 0 0;
+                        width: 112px;
+                        height: 145px;
+                        vertical-align: top;
+
+                        > .@{prefix}numeric-input {
+                            margin: 2px 0;
+                            width: 108px;
+                        }
+
+                        > .@{prefix}text-input {
+                            margin: 2px 0;
+                            min-height: 22px;
+                            min-width: 111px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,79 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "files": [],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build && node ./config/build.config.js",
+    "build-doc": "npx typedoc --tsconfig ./tsconfig.json",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "map-ui",
+  "author": "zhanzhilin",
+  "module": "map-ui.esm.js",
+  "size-limit": [
+    {
+      "path": "map-ui.cjs.production.min.js",
+      "limit": "1024 KB"
+    },
+    {
+      "path": "map-ui.esm.js",
+      "limit": "1024 KB"
+    }
+  ],
+  "devDependencies": {
+    "@ctrl/tinycolor": "^3.6.0",
+    "@rollup/plugin-alias": "^5.0.0",
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-image": "^3.0.2",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "@rollup/plugin-strip": "^3.0.2",
+    "@size-limit/preset-small-lib": "^8.2.6",
+    "@turf/turf": "^6.5.0",
+    "@types/handlebars": "^4.1.0",
+    "@types/lodash": "^4.14.195",
+    "@types/tinycolor2": "^1.4.3",
+    "autoprefixer": "^10.4.14",
+    "copy-to-clipboard": "^3.3.3",
+    "cssnano": "^6.0.1",
+    "csv2geojson": "^5.1.2",
+    "handlebars": "^4.7.7",
+    "husky": "^8.0.3",
+    "less": "^4.1.3",
+    "lodash": "^4.17.21",
+    "postcss": "^8.4.25",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "size-limit": "^8.2.6",
+    "toolcool-color-picker": "^1.0.15",
+    "toolcool-range-slider": "^4.0.27",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.6.0",
+    "typedoc": "^0.24.8",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {}
+}

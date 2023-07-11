@@ -1,0 +1,46 @@
+.@{prefix}text-area-input {
+    min-height: 48px;
+    height: auto;
+
+    > textarea {
+        resize: none;
+        height: 100%;
+        width: calc(100% - 16px);
+        padding: 0 8px;
+        line-height: 22px;
+        color: inherit;
+        background: transparent;
+        border: none;
+        outline: none;
+        box-shadow: none;
+
+        &:extend(.fixed-font);
+
+        min-height: 44px;
+        min-width: 172px;
+    }
+}
+
+.@{prefix}text-area-input.@{prefix}text-area-input-resizable-none {
+    > textarea {
+        resize: none;
+    }
+}
+
+.@{prefix}text-area-input.@{prefix}text-area-input-resizable-both {
+    > textarea {
+        resize: both;
+    }
+}
+
+.@{prefix}text-area-input.@{prefix}text-area-input-resizable-horizontal {
+    > textarea {
+        resize: horizontal;
+    }
+}
+
+.@{prefix}text-area-input.@{prefix}text-area-input-resizable-vertical {
+    > textarea {
+        resize: vertical;
+    }
+}

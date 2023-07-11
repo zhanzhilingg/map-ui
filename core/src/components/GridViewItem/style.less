@@ -1,0 +1,49 @@
+// Gridview Regular Item
+.@{prefix}gridview-item {
+    &:extend(.@{prefix}flex);
+
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 104px;
+
+    &:not(.@{prefix}disabled) {
+        cursor: pointer;
+
+        &:not(.@{prefix}gridview-item-selected ):hover
+        &:not(.@{prefix}gridview-radiobtn ):hover
+        &:not(.@{prefix}gridview-radiobtn-selected):hover {
+            background-color: @bcg-darker;
+        }
+    }
+}
+
+.@{prefix}gridview-item-selected {
+    background-color: @bcg-darkest;
+}
+
+.@{prefix}gridview-item-text {
+    max-width: 100px;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    padding: 0 2px;
+}
+
+// GridView Radio Buttons
+.@{prefix}gridview-radio-container {
+    &:extend(.@{prefix}flex);
+
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 104px;
+
+    :not(.@{prefix}disabled) {
+        cursor: pointer;
+    }
+}

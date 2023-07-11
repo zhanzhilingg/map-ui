@@ -1,0 +1,212 @@
+{
+  "id": "4122203",
+  "name": "OneMap Widgets",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "36301941",
+      "name": "shuziliuchang",
+      "font_class": "FlowDigital",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "6393694",
+      "name": "segi-icon-copy",
+      "font_class": "segi-icon-copy",
+      "unicode": "e676",
+      "unicode_decimal": 58998
+    },
+    {
+      "icon_id": "34452987",
+      "name": "down",
+      "font_class": "down",
+      "unicode": "e839",
+      "unicode_decimal": 59449
+    },
+    {
+      "icon_id": "34453072",
+      "name": "up",
+      "font_class": "up",
+      "unicode": "e845",
+      "unicode_decimal": 59461
+    },
+    {
+      "icon_id": "36084564",
+      "name": "wenjian",
+      "font_class": "wenjian",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "36081844",
+      "name": "流程图完成",
+      "font_class": "liuchengtuwancheng",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "36081847",
+      "name": "文件上传",
+      "font_class": "wenjianshangchuan",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "36081848",
+      "name": "完成文件上传",
+      "font_class": "wanchengwenjianshangchuan",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "36081849",
+      "name": "筛选",
+      "font_class": "shaixuan",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "36081850",
+      "name": "删除",
+      "font_class": "delete",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "36081852",
+      "name": "重命名",
+      "font_class": "chongmingming",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "36081853",
+      "name": "导出",
+      "font_class": "daochu",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "7834345",
+      "name": "plus",
+      "font_class": "plus",
+      "unicode": "e8fe",
+      "unicode_decimal": 59646
+    },
+    {
+      "icon_id": "59347",
+      "name": "warning",
+      "font_class": "warning",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "736735",
+      "name": "info",
+      "font_class": "info",
+      "unicode": "e6bc",
+      "unicode_decimal": 59068
+    },
+    {
+      "icon_id": "10304434",
+      "name": "success",
+      "font_class": "success",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "29649899",
+      "name": "error",
+      "font_class": "error",
+      "unicode": "ed4f",
+      "unicode_decimal": 60751
+    },
+    {
+      "icon_id": "4448537",
+      "name": "dropdown",
+      "font_class": "dropdown",
+      "unicode": "e66e",
+      "unicode_decimal": 58990
+    },
+    {
+      "icon_id": "35989267",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "35989268",
+      "name": "关闭",
+      "font_class": "guanbi",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "35989269",
+      "name": "降水量",
+      "font_class": "Rainfall",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "35989270",
+      "name": "刷新",
+      "font_class": "shuaxin",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "35989271",
+      "name": "工具箱",
+      "font_class": "gongjuxiang",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "35989272",
+      "name": "坡度坡向",
+      "font_class": "SlopeAspect",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "35989273",
+      "name": "暂停",
+      "font_class": "zanting",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "35989274",
+      "name": "等高线",
+      "font_class": "Contour",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "35989275",
+      "name": "淹没分析",
+      "font_class": "Flood",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "35989276",
+      "name": "土方量分析",
+      "font_class": "Volume",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "17581913",
+      "name": "坡度坡向分析",
+      "font_class": "RainfallAndSlopeAspect",
+      "unicode": "ec81",
+      "unicode_decimal": 60545
+    }
+  ]
+}

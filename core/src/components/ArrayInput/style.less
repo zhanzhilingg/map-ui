@@ -1,0 +1,48 @@
+.@{prefix}array-input {
+    margin: @element-margin;
+    min-width: 0; // 防止溢出
+
+    > .@{prefix}numeric-input {
+        margin: 0 0 @element-margin 0;
+    }
+}
+
+.@{prefix}array-input.@{prefix}array-empty {
+    > .@{prefix}numeric-input {
+        margin: 0;
+    }
+}
+
+.@{prefix}array-input-item {
+    > * {
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+
+    // 字段应该被拉伸，除了那些特别标记为不灵活的和面板标题
+    > *:first-child {
+        &:not(.@{prefix}not-flexible ),
+        &:not( .@{prefix}panel-header)  {
+            flex: 1;
+        }
+    }
+
+    > .@{prefix}button {
+        margin-left: - calc(@element-margin / 2);
+        margin-right: 0;
+        background-color: transparent;
+        border: 0;
+    }
+}
+
+.@{prefix}array-input-item-asset {
+    > .@{prefix}button {
+        margin-top: 36px;
+    }
+}
+
+.@{prefix}array-input.@{prefix}readonly {
+    .@{prefix}array-input-item-delete {
+        display: none;
+    }
+}

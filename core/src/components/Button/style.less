@@ -1,0 +1,83 @@
+
+// buttons
+.@{prefix}button {
+    &:extend(.@{prefix}no-select);
+
+    display: inline-block;
+    border: 1px solid @bcg-darkest;
+    border-radius: 2px;
+    box-sizing: border-box;
+    background-color: @bcg-dark;
+    color: @text-secondary;
+    padding: 0 8px;
+    margin: @element-margin;
+    height: 28px;
+    line-height: 28px;
+    max-height: 100%;
+    vertical-align: middle;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 100ms, opacity 100ms, box-shadow 100ms;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// icon
+.@{prefix}button[data-icon] {
+    // 使用data-icon属性作为内容显示图标
+    &::before {
+        content: attr(data-icon);
+
+        &:extend(.font-icon);
+
+        font-weight: 100;
+        font-size: inherit;
+        margin-right: @element-margin;
+        vertical-align: middle;
+    }
+
+    // 如果按钮没有文本，移除图标的右边距
+    &:empty {
+        &::before {
+            margin-right: 0;
+        }
+    }
+}
+
+// focus / hover states
+.@{prefix}button:not(.@{prefix}disabled), 
+.@{prefix}button:not(.@{prefix}readonly) {
+    &:hover,
+    &:focus {
+        color: @text-primary;
+        background-color: @bcg-dark;
+        box-shadow: @element-shadow-hover;
+    }
+
+    &:active {
+        background-color: @bcg-darkest;
+        box-shadow: none;
+    }
+}
+
+// readonly states
+.@{prefix}button.@{prefix}readonly {
+    opacity: @element-opacity-readonly;
+    cursor: default;
+}
+
+// disabled states
+.@{prefix}button.@{prefix}disabled {
+    opacity: @element-opacity-disabled;
+    cursor: default;
+}
+
+// small button
+.@{prefix}button.@{prefix}small {
+    height: 24px;
+    line-height: 24px;
+    font-size: 10px;
+}

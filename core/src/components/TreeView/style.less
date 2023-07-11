@@ -1,0 +1,272 @@
+.@{prefix}treeview {
+    &:extend(.@{prefix}no-select);
+
+    // 确保我们的宽度覆盖了最大的可见树项子元素，这在边缘上不起作用
+    min-width: max-content;
+}
+
+.@{prefix}treeview-item {
+    position: relative;
+    padding-left: 24px;
+
+    // top line
+    &::before {
+        content: '\00a0';
+        position: absolute;
+        background-color: mix(@bcg-dark, @bcg-primary, 50%);
+        width: 2px;
+        left: 14px;
+        top: -12px;
+        bottom: 12px;
+    }
+
+    // top line, last item
+    &:last-child::before {
+        height: 25px;
+        bottom: auto;
+    }
+}
+
+.@{prefix}treeview-item.@{prefix}disabled {
+    > .@{prefix}treeview-item-contents {
+        > .@{prefix}treeview-item-text {
+            opacity: @disabled-opacity;
+        }
+    }
+}
+
+.@{prefix}treeview-item-contents {
+    position: relative;
+    color: @text-secondary;
+    margin-left: 3px;
+    border: 1px solid transparent;
+    align-items: center;
+    height: 24px;
+    box-sizing: border-box;
+
+    &:hover {
+        cursor: pointer;
+        color: @text-primary;
+        background-color: @bcg-dark;
+
+        > .@{prefix}treeview-item-icon {
+            color: @text-primary;
+        }
+    }
+}
+
+.@{prefix}treeview-item-icon {
+    color: @text-darkest;
+    margin: 0 2px 0 0;
+    flex-shrink: 0;
+
+    &::before {
+        content: '\00a0';
+        position: absolute;
+        background-color: mix(@bcg-dark, @bcg-primary, 50%);
+        left: -12px;
+        top: 10px;
+        width: 24px;
+        height: 2px;
+    }
+
+    &::after {
+        content: attr(data-icon);
+
+        &:extend(.font-icon);
+
+        display: inline-block;
+        vertical-align: sub;
+        width: 22px;
+        height: 22px;
+        position: relative;
+        z-index: 1;
+        text-align: center;
+    }
+}
+
+.@{prefix}treeview-item-text {
+    margin: 0;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    transition: opacity 100ms;
+    padding-right: 8px;
+    color: inherit;
+}
+
+.@{prefix}treeview-item-contents.@{prefix}treeview-item-selected {
+    background-color: @bcg-darkest;
+    color: @text-primary;
+
+    > .@{prefix}treeview-item-icon {
+        color: @text-primary;
+    }
+}
+
+.@{prefix}treeview-item:not(.@{prefix}treeview-item-empty) {
+    > .@{prefix}treeview-item-contents::before {
+        content: '\E120';
+
+        &:extend(.font-icon);
+
+        position: absolute;
+        font-size: 10px;
+        font-weight: bold;
+        text-align: center;
+        color: @text-secondary;
+        background-color: @bcg-dark;
+        top: 0;
+        left: -24px;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        margin: 3px;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    &.@{prefix}treeview-item-open {
+        > .@{prefix}treeview-item-contents::before {
+            content: '\E121';
+        }
+    }
+}
+
+.@{prefix}treeview {
+    // direct children of tree
+    > .@{prefix}treeview-item {
+        padding-left: 0;
+
+        &::before {
+            content: none;
+        }
+
+        > .@{prefix}treeview-item-contents {
+            margin-left: 0;
+
+            > .@{prefix}treeview-item-icon {
+                &::before {
+                    content: none;
+                }
+
+                &::after {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        > .@{prefix}treeview-item {
+            padding-left: 21px;
+
+            // top line
+            &::before {
+                left: 11px;
+            }
+        }
+    }
+}
+
+.@{prefix}treeview:not(.@{prefix}treeview-filtering) {
+    // 树的直接子节点
+    > .@{prefix}treeview-item {
+        .@{prefix}treeview-item {
+            &:not(.@{prefix}treeview-item-open),
+            &:not(.@{prefix}treeview-item-empty)  {
+                > .@{prefix}treeview-item {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.@{prefix}treeview-item-dragged > .@{prefix}treeview-item-contents {
+    background-color: rgba(@bcg-dark, 0.5);
+    color: @text-primary;
+}
+
+.@{prefix}treeview-drag-handle {
+    position: fixed;
+    width: 32px;
+    height: 20px;
+    top: 0;
+    bottom: 0;
+    z-index: 4;
+    margin-top: -1px;
+    margin-left: -1px;
+
+    &.before {
+        border-top: 4px solid @text-active;
+        padding-right: 8px;
+        height: 24px;
+    }
+
+    &.inside {
+        border: 4px solid @text-active;
+    }
+
+    &.after {
+        border-bottom: 4px solid @text-active;
+        padding-right: 8px;
+        height: 24px;
+    }
+}
+
+.@{prefix}treeview-item-contents::after {
+    content: ' ';
+    display: block;
+    clear: both;
+}
+
+.@{prefix}treeview-item.@{prefix}treeview-item-rename {
+    > .@{prefix}treeview-item-contents {
+        > .@{prefix}treeview-item-text {
+            display: none;
+        }
+
+        > .@{prefix}text-input {
+            margin: 0;
+            flex-grow: 1;
+            box-shadow: none !important;
+            border: 0;
+            background-color: transparent;
+
+            > input {
+                font-family: inherit;
+                font-size: 14px;
+                padding: 0;
+            }
+        }
+    }
+}
+
+.@{prefix}treeview.@{prefix}treeview-filtering {
+    // > .@{prefix}treeview-item {
+    //     display: none;
+    // }
+    .@{prefix}treeview-item {
+        padding-left: 0;
+
+        &::before {
+            display: none;
+        }
+
+        &:not(.@{prefix}treeview-filtering-result) {
+            > .@{prefix}treeview-item-contents {
+                display: none;
+            }
+        }
+    }
+
+    .@{prefix}treeview-item-contents {
+        margin-left: 0;
+    }
+}
+
+.@{prefix}treeview-filtering-result {
+    .@{prefix}treeview-item-contents::before,
+    .@{prefix}treeview-item-icon::before {
+        display: none;
+    }
+}

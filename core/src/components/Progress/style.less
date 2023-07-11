@@ -1,0 +1,65 @@
+.@{prefix}progress {
+    height: 4px;
+    background-color: @bcg-darkest;
+    transition: opacity 100ms;
+    width: 100%;
+
+    .@{prefix}progress-inner {
+        width: 0%;
+        height: inherit;
+
+        @first: rgba(@text-active, 1);
+        @second: rgba(darken(@text-active, 17%), 1);
+
+        background: @text-active;
+        background:
+            linear-gradient(
+                135deg,
+                @first 0%,
+                @first 25%,
+                @second 26%,
+                @second 50%,
+                @first 51%,
+                @first 75%,
+                @second 76%,
+                @second 100%
+            );
+        background-position: 0 0;
+        background-size: 24px 24px;
+        background-repeat: repeat;
+
+        // animate
+        animation: pcui-progress-background 1000ms linear infinite;
+    }
+}
+
+.@{prefix}progress.@{prefix}error {
+    .@{prefix}progress-inner {
+        @first: rgba(#f77, 1);
+        @second: rgba(darken(#f77, 17%), 1);
+
+        background: @text-active;
+        background:
+            linear-gradient(
+                135deg,
+                @first 0%,
+                @first 25%,
+                @second 26%,
+                @second 50%,
+                @first 51%,
+                @first 75%,
+                @second 76%,
+                @second 100%
+            );
+        background-position: 0 0;
+        background-size: 24px 24px;
+        background-repeat: repeat;
+        animation: none;
+    }
+}
+
+// ui-progress animation
+@keyframes pcui-progress-background {
+    from { background-position: 0 0; }
+    to { background-position: 24px 0; }
+}

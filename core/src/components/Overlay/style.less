@@ -1,0 +1,41 @@
+.@{prefix}overlay {
+    width: auto;
+    height: auto;
+    inset: 0;
+    z-index: 101;
+    transition: opacity 100ms, visibility 100ms;
+
+    &:extend(.@{prefix}flex);
+
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.@{prefix}overlay-inner {
+    &:extend(.@{prefix}no-select);
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    inset: 0;
+    background-color: rgba(@bcg-darkest, 0.7);
+}
+
+.@{prefix}overlay-clickable {
+    > .@{prefix}overlay-inner {
+        cursor: pointer;
+    }
+}
+
+.@{prefix}overlay-transparent {
+    > .@{prefix}overlay-inner {
+        background-color: transparent;
+    }
+}
+
+.@{prefix}overlay-content {
+    background-color: @bcg-primary;
+    transition: width 100ms, height 100ms, margin-left 100ms, margin-top 100ms;
+    box-shadow: 7px 7px 7px rgb(0 0 0 / 15%);
+}

@@ -1,0 +1,261 @@
+// color input
+.@{prefix}color-input {
+    &:extend(.@{prefix}no-select);
+
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 44px;
+    height: 24px;
+    margin: @element-margin;
+    vertical-align: top;
+    cursor: pointer;
+    transition: opacity 100ms;
+
+    > .@{prefix}overlay-clickable {
+        position: fixed;
+    }
+
+    > div {
+        position: absolute;
+        inset: 0;
+    }
+
+    // 棋盘图案
+    // @include checkerboard(#fff, black, calc(44px/5));
+
+    &::after {
+        content: '\00a0';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        background-color: transparent;
+        border-bottom: 16px solid @bcg-darker;
+        border-left: 16px solid transparent;
+    }
+}
+
+.picker-color {
+    &.c-1 > .@{prefix}overlay-content {
+        > .pick-opacity {
+            display: block;
+        }
+
+        > .fields > .field-r {
+            display: block;
+        }
+    }
+
+    &.c-2 > .@{prefix}overlay-content {
+        > .fields > .field-hex {
+            display: block;
+        }
+    }
+
+    &.c-3 > .@{prefix}overlay-content {
+        width: 298px;
+
+        > .pick-rect {
+            display: block;
+        }
+
+        > .pick-hue {
+            display: block;
+        }
+
+        > .pick-opacity {
+            display: none;
+        }
+
+        > .fields {
+            > .field-g,
+            > .field-b {
+                display: block;
+            }
+        }
+    }
+
+    &.c-4 > .@{prefix}overlay-content {
+        width: 320px;
+
+        > .pick-opacity {
+            display: block;
+        }
+
+        > .fields > .field-a {
+            display: block;
+        }
+    }
+
+    > .@{prefix}overlay-content {
+        border: 1px solid #000;
+        width: 320px;
+        height: 162px;
+
+        // background-color: #333;
+        white-space: nowrap;
+        transition: none;
+
+        > .pick-rect {
+            &:extend(.@{prefix}no-select);
+
+            position: relative;
+            display: none;
+            float: left;
+            width: 146px;
+            height: 146px;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            margin: 8px 0 8px 8px;
+            background-color: #f00;
+            cursor: crosshair;
+
+            > .white {
+                position: absolute;
+                width: 144px;
+                height: 144px;
+                top: 0;
+                left: 0;
+                background: linear-gradient(to right, rgb(255 255 255 / 100%) 0%, rgb(255 255 255 / 1%) 100%);
+            }
+
+            > .black {
+                position: absolute;
+                width: 144px;
+                height: 144px;
+                top: 0;
+                left: 0;
+                background: linear-gradient(to bottom, rgb(0 0 0 / 1%) 0%, rgb(0 0 0 / 100%) 100%);
+            }
+
+            > .handle {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 12px;
+                height: 12px;
+                margin: -7px 0 0 -7px;
+                border: 1px solid #000;
+                outline: 1px solid #fff;
+            }
+        }
+
+        > .pick-hue {
+            &:extend(.@{prefix}no-select);
+
+            position: relative;
+            display: none;
+            float: left;
+            width: 14px;
+            height: 146px;
+            margin: 8px 0 8px 8px;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            cursor: crosshair;
+            background: #000;
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgb(255 0 0 / 100%) 0%,
+                    rgb(255 255 0 / 100%) 16.67%,
+                    rgb(0 255 0 / 100%) 33.33%,
+                    rgb(0 255 255 / 100%) 50%,
+                    rgb(0 0 255 / 100%) 66.67%,
+                    rgb(255 0 255 / 100%) 83.33%,
+                    rgb(255 0 0 / 100%) 100%
+                );
+
+            > .handle {
+                position: absolute;
+                top: 0;
+                left: -3px;
+                width: 16px;
+                height: 4px;
+                margin: -3px 0 0;
+                border: 1px solid #000;
+                outline: 1px solid #fff;
+            }
+        }
+
+        > .pick-opacity {
+            &:extend(.@{prefix}no-select);
+
+            position: relative;
+            display: none;
+            float: left;
+            width: 12px;
+            height: 144px;
+            margin: 8px 0 8px 8px;
+            border: 1px solid #000;
+            cursor: crosshair;
+            background: #000;
+            background: linear-gradient(to bottom, #fff 0%, #000 100%);
+
+            > .handle {
+                position: absolute;
+                top: 0;
+                left: -3px;
+                width: 16px;
+                height: 4px;
+                margin: -3px 0 0;
+                border: 1px solid #000;
+                outline: 1px solid #fff;
+            }
+        }
+
+        > .fields {
+            float: left;
+            width: 106px;
+            height: 154px;
+            margin: 0 0 0 8px;
+            padding: 4px;
+
+            > .field {
+                display: none;
+                width: calc(106px - 6px);
+            }
+        }
+    }
+}
+
+.@{prefix}color-input.@{prefix}multiple-values {
+    > div {
+        display: none;
+    }
+
+    // @include checkerboard(#465659, #5b696c, calc(44px/5));
+}
+
+// readonly color input
+.@{prefix}color-input.@{prefix}readonly {
+    cursor: default;
+
+    &::after {
+        display: none;
+    }
+}
+
+// disabled color input
+.@{prefix}color-input.@{prefix}disabled {
+    opacity: @element-opacity-disabled;
+    cursor: default;
+}
+
+// hover / focus states
+.@{prefix}color-input:not(.@{prefix}disabled),
+.@{prefix}color-input:not(.@{prefix}readonly) {
+    &:hover,
+    &:focus {
+        box-shadow: @element-shadow-hover;
+
+        &::after {
+            border-bottom-color: @bcg-darkest;
+        }
+    }
+
+    &:active {
+        box-shadow: @element-shadow-active;
+    }
+}

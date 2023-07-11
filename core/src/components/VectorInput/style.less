@@ -1,0 +1,19 @@
+.@{prefix}vector-input {
+    &:extend(.@{prefix}flex);
+
+    flex-direction: row;
+    align-items: center;
+
+    > .@{prefix}numeric-input {
+        flex: 1;
+        margin: @element-margin calc(@element-margin / 2);
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

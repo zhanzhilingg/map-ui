@@ -1,0 +1,111 @@
+.@{prefix}input-element {
+    display: inline-block;
+    border: 1px solid @bcg-darker;
+    border-radius: 2px;
+    box-sizing: border-box;
+    margin: @element-margin;
+    min-height: 24px;
+    height: 24px;
+    background-color: @bcg-dark;
+    vertical-align: top;
+    transition: color 100ms, background-color 100ms, box-shadow 100ms;
+    position: relative;
+    color: @text-secondary;
+
+    > input {
+        height: 100%;
+        width: calc(100% - 16px);
+        padding: 0 @element-margin;
+        line-height: 1;
+        color: inherit;
+        background: transparent;
+        border: none;
+        outline: none;
+        box-shadow: none;
+
+        &:extend(.fixed-font);
+    }
+
+    &::before {
+        color: inherit;
+    }
+}
+
+.@{prefix}input-element.@{prefix}multiple-values {
+    &::before {
+        position: absolute;
+        padding: 0 8px;
+        content: '...';
+        white-space: nowrap;
+
+        &:extend(.fixed-font);
+
+        top: 5px;
+        font-size: 12px;
+    }
+}
+
+// focus / hover states
+.@{prefix}input-element:not(.@{prefix}disabled),
+.@{prefix}input-element:not(.@{prefix}readonly) {
+    &:hover {
+        background-color: @bcg-darker;
+        color: @text-primary;
+    }
+
+    &:not(.@{prefix}error):hover {
+        box-shadow: @element-shadow-hover;
+    }
+
+    &.@{prefix}focus {
+        background-color: @bcg-darkest;
+        box-shadow: @element-shadow-active;
+    }
+}
+
+.@{prefix}input-element {
+    &.@{prefix}focus,
+    &:hover {
+        &::after,
+        &::before {
+            display: none;
+        }
+    }
+}
+
+// readonly state
+.@{prefix}input-element.@{prefix}readonly {
+    background-color: fadein(@bcg-dark, 1 - @element-opacity-readonly);
+    border-color: transparent;
+}
+
+// disabled state
+.@{prefix}input-element.@{prefix}disabled {
+    color: @text-darkest;
+}
+
+// error state
+.@{prefix}input-element.@{prefix}error {
+    color: @text-secondary;
+    box-shadow: @element-shadow-error;
+}
+
+// placeholder
+.@{prefix}input-element[placeholder] {
+    position: relative;
+
+    &::after {
+        content: attr(placeholder);
+        background-color: @bcg-dark;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 8px;
+        line-height: 22px;
+        font-size: 10px;
+        font-weight: 600;
+        white-space: nowrap;
+        color: @element-color-placeholder;
+        pointer-events: none;
+    }
+}

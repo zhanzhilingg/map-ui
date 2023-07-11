@@ -1,0 +1,20 @@
+{
+  "name": "@zhanzhilin/map-ui",
+  "version": "1.0.0",
+  "description": "an ui component library for webgis development",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "module": "map-ui.esm.js",
+  "author": "zhanzhilin",
+  "repositories": "git@github.com:zhanzhilingg/map-ui.git",
+  "license": "MIT",
+  "dependencies": { },
+  "keywords": [
+    "map",
+    "gis",
+    "web",
+    "components",
+    "widgets",
+    "library"
+  ]
+}
