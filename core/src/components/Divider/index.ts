@@ -1,6 +1,6 @@
 import Element, { ElementArgs } from '../Element';
 
-const CLASS_ROOT = 'pcui-divider';
+const CLASS_ROOT = 'map-ui-divider';
 
 /**
  *表示两个元素之间的垂直分隔

@@ -8,7 +8,7 @@ const json = require('@rollup/plugin-json');
 const commonjs = require('@rollup/plugin-commonjs');
 const alias = require('@rollup/plugin-alias');
 const resolve = require('@rollup/plugin-node-resolve').nodeResolve;
-const strip = require("@rollup/plugin-strip");
+const strip = require("@rollup/plugin-strip");  // 去掉debugger和console语句
 // const copy = require('rollup-plugin-copy');
 
 const pkg = require("./package.json");

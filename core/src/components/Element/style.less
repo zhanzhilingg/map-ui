@@ -1,5 +1,5 @@
 // Element styling
-@keyframes pcui-flash-animation {
+@keyframes map-ui-flash-animation {
     from { outline-color: @text-active; }
     to { outline-color: rgba(@text-active, 0); }
 }
@@ -11,7 +11,7 @@
 
     &.flash {
         outline: 1px solid @text-active;
-        animation: pcui-flash-animation 200ms ease-in-out forwards;
+        animation: map-ui-flash-animation 200ms ease-in-out forwards;
     }
 
     &:focus {

@@ -121,7 +121,7 @@ class History extends Events {
             this.executing++;
             await undo();
         } catch (ex) {
-            console.info('%c(pcui.History#undo)', 'color: #f00');
+            console.info('%c(map-ui.History#undo)', 'color: #f00');
             console.log(ex.stack);
         } finally {
             this.executing--;
@@ -150,7 +150,7 @@ class History extends Events {
             this.executing++;
             await redo();
         } catch (ex) {
-            console.info('%c(pcui.History#redo)', 'color: #f00');
+            console.info('%c(map-ui.History#redo)', 'color: #f00');
             console.log(ex.stack);
         } finally {
             this.executing--;
